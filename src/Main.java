@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    //create a move for the players
     private static String CreateMove() {
         String result = " ";
         Random random = new Random();
@@ -21,6 +22,9 @@ public class Main {
         return result;
     }
 
+    //created one process to run javac RPS.JAVA in order to create the java file
+    //which will be ran by other proccesses by using java RPS
+    // once proccess is completed it will output the result
     public static void main(String[] args) throws IOException {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter number of games");
@@ -59,6 +63,9 @@ public class Main {
         print("Output Three ", process3.getInputStream());
     }
 
+    //print the output of each implementation
+    //once the proccess is completed it will output  the content from the file after it is
+    //done executing
     private static void print(String status, InputStream input) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(input));
         System.out.println("************* " + status + "***********************");

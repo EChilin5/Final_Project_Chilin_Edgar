@@ -11,8 +11,7 @@ import java.util.Random;
 
 public class RPS{
 
-
-
+    //checks to see if it'll gain any type of points
     private static int Validate(String playerMove , String opponentMove){
         int score = 0;
         if((playerMove.contains( "rock")) && (opponentMove.contains("scissors"))){
@@ -25,6 +24,8 @@ public class RPS{
         return score;
     }
 
+    // gives the use a unique move
+    //whenve it's called during each round
     private static String CreateMove(String id){
         String result = " ";
         Random random = new Random();
@@ -42,8 +43,9 @@ public class RPS{
 
 
 
-
-
+    // checks to see if it'll recieve one point or 2 points
+    //then calls on validate to get specific amount of points
+    // multiplies by 2 if it beats the 2 players
     private static int FinalScore(String MainP, String OppP1, String OppP2){
         int score = 0;
         if(OppP1.contains( OppP2)){
@@ -61,6 +63,9 @@ public class RPS{
         return score;
     }
 
+    // a server and a client is specified for each player
+    // each individual client sends information to a specific server
+    // than specific server will retrieve the infomation being sent
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         List<String> infomation = new ArrayList<>(2);
         infomation.add(args[0]); // player
