@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -21,7 +22,11 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter number of games");
 
+        String count = myObj.nextLine();  // Read user input
+        System.out.println("Number of games is: " + count);  // Output user input
 
         try {
             ProcessBuilder processBuilder4 = new ProcessBuilder("javac", "src/RPS.java");
@@ -34,9 +39,9 @@ public class Main {
         //intializes the procedure to execute the program
         //follow a player, a Move, set score to 0, then how many iterations to run
 
-        String[] command1 = {"java", "-cp", "src/", "RPS", "player 1", CreateMove(), "0", "10"};
-        String[] command2 = {"java", "-cp", "src/", "RPS", "player 2", CreateMove(), "0", "10"};
-        String[] command3 = {"java", "-cp", "src/", "RPS", "player 3", CreateMove(), "0", "10"};
+        String[] command1 = {"java", "-cp", "src/", "RPS", "player 1", CreateMove(), "0", count};
+        String[] command2 = {"java", "-cp", "src/", "RPS", "player 2", CreateMove(), "0", count};
+        String[] command3 = {"java", "-cp", "src/", "RPS", "player 3", CreateMove(), "0", count};
         ProcessBuilder processBuilder = new ProcessBuilder(command1);
         Process process = processBuilder.start();
 
